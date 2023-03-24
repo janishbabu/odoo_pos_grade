@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<templates id="template" xml:space="preserve">
+    <t t-name="OrderLinesReceipt" t-inherit="point_of_sale.OrderLinesReceipt"
+       t-inherit-mode="extension" owl="1">
+   <t t-foreach="receipt.orderlines" t-as="line">
+       <xpath expr="//div[hasclass('orderlines')]" position="after">
+        <t t-log="receipt"/>
+           <t t-if="line.grade">
+               [Grade:<strong><t t-esc="line.grade"/>]</strong>
+           </t>
+       </xpath>
+   </t>
+</t>
+  </templates>
